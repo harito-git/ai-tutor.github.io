@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Learning Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            text-align: center;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        
+
+        .image-container {
+            position: relative;
+            width: 400px; /* Adjust as needed */
+            height: 300px; /* Adjust as needed */
+            overflow: hidden;
+        }
+
+        #image {
+            width: 100%;
+            height: auto;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .hidden {
+            opacity: 0;
+        }
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .question-box, .answer-box, .submit-box {
+            margin: 10px 0;
+        }
+
+        input[type="text"] {
+            width: 80%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: none;
+            background-color: #007BFF;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="image-container">
+            <img id="image" src="teacher1.png" alt="Image">
+        </div>
+        <button onclick="changeImage()">Change Image</button>
+        </div>
+        <div class="question-box">
+            <p id="question">What is the capital of France?</p>
+        </div>
+        <div class="answer-box">
+            <input type="text" id="answer" placeholder="Your answer here...">
+        </div>
+        <div class="submit-box">
+            <button onclick="submitAnswer()">Submit</button>
+        </div>
+    </div>
+    <script>
+        function changeImage() {
+            const img = document.getElementById('image');
+            
+            // Add the 'hidden' class to start the fade-out transition
+            img.classList.add('hidden');
+            
+            // Wait for the transition to complete, then change the image source
+            setTimeout(() => {
+                img.src = 'teacher2.png';
+                
+                // Remove the 'hidden' class to start the fade-in transition
+                img.classList.remove('hidden');
+            }, 1000); // Match this delay to the CSS transition duration
+        }
+        function submitAnswer() {
+            const answer = document.getElementById('answer').value;
+            alert(`You answered: ${answer}`);
+        }
+    </script>
+</body>
+</html>
