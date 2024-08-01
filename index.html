@@ -23,13 +23,10 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
-        
-
         .image-container {
-            position: relative;
             width: 400px; /* Adjust as needed */
             height: 300px; /* Adjust as needed */
-            overflow: hidden;
+            margin-bottom: 20px; /* Space between image and question box */
         }
 
         #image {
@@ -40,14 +37,6 @@
 
         .hidden {
             opacity: 0;
-        }
-        @keyframes rotate {
-            0% {
-                transform: rotate(0deg);
-            }
-            100% {
-                transform: rotate(360deg);
-            }
         }
 
         .question-box, .answer-box, .submit-box {
@@ -80,10 +69,9 @@
 <body>
     <div class="container">
         <div class="image-container">
-            <img id="image" src="teacher1.png" alt="Image">
+            <img id="image" src="https://cdn.discordapp.com/attachments/1267682531252244583/1268603812814258269/Illustration11.png?ex=66ad06de&is=66abb55e&hm=75d2f6a79889a1ae1638e09f48d66bc7b957b3b00d39e715cb3a4d9e947c46dc&" alt="Image">
         </div>
         <button onclick="changeImage()">Change Image</button>
-        </div>
         <div class="question-box">
             <p id="question">What is the capital of France?</p>
         </div>
@@ -103,12 +91,13 @@
             
             // Wait for the transition to complete, then change the image source
             setTimeout(() => {
-                img.src = 'teacher2.png';
+                img.src = 'https://cdn.discordapp.com/attachments/1267682531252244583/1268603812344631418/Illustration10.png?ex=66ad06de&is=66abb55e&hm=6a2f8339146274f30aef305e184b53e91f6d5658a00335ce56b9e514368f2c00&';
                 
                 // Remove the 'hidden' class to start the fade-in transition
                 img.classList.remove('hidden');
             }, 1000); // Match this delay to the CSS transition duration
         }
+
         function submitAnswer() {
             const answer = document.getElementById('answer').value;
             alert(`You answered: ${answer}`);
