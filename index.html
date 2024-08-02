@@ -7,20 +7,23 @@
     <style>
         body {
             font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f0f0f0;
+            background: url('background-image.jpg') no-repeat center center fixed;
+            background-size: cover;
         }
 
         .container {
             text-align: center;
-            background: #fff;
+            background: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative;
         }
 
         .image-container {
@@ -37,6 +40,17 @@
 
         .hidden {
             opacity: 0;
+        }
+
+        .video-container {
+            margin-bottom: 20px; /* Space between video and other content */
+        }
+
+        video {
+            width: 100%;
+            max-width: 600px;
+            margin-bottom: 20px;
+            display: none; /* Hide initially */
         }
 
         .question-box, .answer-box, .submit-box {
@@ -69,9 +83,19 @@
 <body>
     <div class="container">
         <div class="image-container">
-            <img id="image" src="https://cdn.discordapp.com/attachments/1267682531252244583/1268603812814258269/Illustration11.png?ex=66ad06de&is=66abb55e&hm=75d2f6a79889a1ae1638e09f48d66bc7b957b3b00d39e715cb3a4d9e947c46dc&" alt="Image">
+            <img id="image" src="teacher1.png" alt="Image">
         </div>
         <button onclick="changeImage()">Change Image</button>
+
+        <!-- Video Section -->
+        <div class="video-container">
+            <video id="myVideo" controls>
+                <source src="Chalkboard.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <button onclick="playVideo()">Play Video</button>
+        </div>
+
         <div class="question-box">
             <p id="question">What is the capital of France?</p>
         </div>
@@ -82,6 +106,7 @@
             <button onclick="submitAnswer()">Submit</button>
         </div>
     </div>
+
     <script>
         function changeImage() {
             const img = document.getElementById('image');
@@ -91,11 +116,17 @@
             
             // Wait for the transition to complete, then change the image source
             setTimeout(() => {
-                img.src = 'https://cdn.discordapp.com/attachments/1267682531252244583/1268603812344631418/Illustration10.png?ex=66ad06de&is=66abb55e&hm=6a2f8339146274f30aef305e184b53e91f6d5658a00335ce56b9e514368f2c00&';
+                img.src = 'teacher2.png';
                 
                 // Remove the 'hidden' class to start the fade-in transition
                 img.classList.remove('hidden');
             }, 1000); // Match this delay to the CSS transition duration
+        }
+
+        function playVideo() {
+            const video = document.getElementById('myVideo');
+            video.style.display = 'block'; // Show the video
+            video.play();
         }
 
         function submitAnswer() {
@@ -105,6 +136,7 @@
     </script>
 </body>
 </html>
+
 
 
 
